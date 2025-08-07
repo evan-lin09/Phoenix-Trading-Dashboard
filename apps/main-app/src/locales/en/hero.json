@@ -1,0 +1,19 @@
+{
+  "title": "The World's Leading Crypto Trading Platform",
+  "subtitle": "Trade Bitcoin, Ethereum, and hundreds of cryptocurrencies with advanced tools and industry-leading security",
+  "getStarted": "Get Started",
+  "learnMore": "Learn More",
+  "signUp": "Sign Up Now",
+  "tradeNow": "Trade Now",
+  "features": {
+    "security": "Bank-level Security",
+    "liquidity": "Deep Liquidity",
+    "support": "24/7 Support",
+    "fees": "Low Trading Fees"
+  },
+  "stats": {
+    "users": "{{count}}M+ Users",
+    "volume": "${{amount}}B+ Daily Volume",
+    "countries": "{{count}}+ Countries"
+  }
+} 

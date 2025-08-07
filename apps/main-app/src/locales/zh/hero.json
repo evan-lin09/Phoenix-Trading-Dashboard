@@ -1,0 +1,19 @@
+{
+  "title": "全球领先的加密货币交易平台",
+  "subtitle": "交易比特币、以太坊和数百种加密货币，享受先进的交易工具和行业领先的安全保障",
+  "getStarted": "立即开始",
+  "learnMore": "了解更多",
+  "signUp": "立即注册",
+  "tradeNow": "立即交易",
+  "features": {
+    "security": "银行级安全",
+    "liquidity": "深度流动性",
+    "support": "24/7客服",
+    "fees": "低交易手续费"
+  },
+  "stats": {
+    "users": "{{count}}M+ 用户",
+    "volume": "${{amount}}B+ 日交易量",
+    "countries": "{{count}}+ 国家和地区"
+  }
+} 

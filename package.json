@@ -1,0 +1,45 @@
+{
+  "name": "phoenix-trading-dashboard",
+  "version": "1.0.0",
+  "description": "Phoenix Trading Dashboard - Modern Micro-Frontend Trading Platform with Next.js 14.2.3 & React 18.3.1",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "type-check": "turbo type-check",
+    "clean": "turbo clean",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo build && changeset publish",
+    "install:all": "pnpm install",
+    "dev:main": "pnpm --filter main-app dev",
+    "dev:spot": "pnpm --filter spot-trading dev", 
+    "dev:futures": "pnpm --filter futures-trading dev",
+    "dev:earn": "pnpm --filter earn dev",
+    "dev:dashboard": "pnpm --filter dashboard dev"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "@turbo/gen": "^1.10.12",
+    "@types/node": "^20.0.0",
+    "prettier": "^3.0.0",
+    "turbo": "latest",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "packageManager": "pnpm@10.13.1",
+  "engines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=8.0.0"
+  }
+}

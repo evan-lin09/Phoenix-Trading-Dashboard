@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 深色主题 (默认) */
+    --color-bull: #00C89F;
+    --color-bear: #F23645;
+    --color-warning: #F59E0B;
+    
+    /* 图表颜色 */
+    --chart-bg: #1A1A1A;
+    --chart-grid: #2A2A2A;
+    --chart-text: #FFFFFF;
+    
+    /* 间距系统 */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+  }
+  
+  /* 浅色主题变量 */
+  .light {
+    --chart-bg: #FFFFFF;
+    --chart-grid: #F5F5F5;
+    --chart-text: #1A1A1A;
+  }
+  
+  * {
+    @apply border-gray-200 dark:border-gray-800;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-white dark:bg-black text-gray-900 dark:text-white antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* 滚动条样式 */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+}
+
+@layer components {
+  /* 交易平台通用组件样式 */
+  .trading-card {
+    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-6 backdrop-blur-sm;
+    @apply hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200;
+  }
+  
+  .price-up {
+    @apply text-green-600 dark:text-green-400 font-medium;
+  }
+  
+  .price-down {
+    @apply text-red-600 dark:text-red-400 font-medium;
+  }
+  
+  .price-neutral {
+    @apply text-gray-900 dark:text-white font-medium;
+  }
+  
+  .chart-container {
+    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-lg;
+  }
+  
+  /* 按钮样式增强 */
+  .btn-trading {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+  }
+  
+  .btn-buy {
+    @apply btn-trading bg-green-600 hover:bg-green-500 text-white shadow-lg;
+  }
+  
+  .btn-sell {
+    @apply btn-trading bg-red-600 hover:bg-red-500 text-white shadow-lg;
+  }
+  
+  /* 导航样式 */
+  .nav-link {
+    @apply flex items-center px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white;
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200;
+  }
+  
+  .nav-link.active {
+    @apply bg-blue-100 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 font-medium;
+  }
+  
+  /* 卡片hover效果 */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  /* 响应式侧边栏 - 简化版本 */
+  .sidebar {
+    /* 桌面端：静态定位，正常文档流 */
+    @apply lg:static lg:translate-x-0 lg:w-64;
+    /* 移动端：固定定位，可以滑动隐藏 */
+    @apply fixed inset-y-0 left-0 z-40 w-64 transform transition-transform duration-300 ease-in-out;
+  }
+  
+  .sidebar.mobile-hidden {
+    /* 只在移动端隐藏，桌面端始终显示 */
+    @apply -translate-x-full lg:translate-x-0;
+  }
+  
+  /* 移动端遮罩 */
+  .mobile-overlay {
+    @apply fixed inset-0 z-30 bg-black bg-opacity-50 lg:hidden;
+  }
+  
+  /* Header确保最高层级 */
+  .main-header {
+    @apply z-50 relative;
+  }
+}
+
+/* 加载动画 */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 数字滚动动画 */
+@keyframes numberChange {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.number-change {
+  animation: numberChange 0.3s ease-out;
+}
+
+/* 渐变背景 */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(-45deg, #1e40af, #7c3aed, #dc2626, #059669);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Hero section特殊样式 */
+.hero-glow {
+  position: relative;
+}
+
+.hero-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* 响应式文字 */
+@screen sm {
+  .text-responsive {
+    @apply text-lg;
+  }
+}
+
+@screen md {
+  .text-responsive {
+    @apply text-xl;
+  }
+}
+
+@screen lg {
+  .text-responsive {
+    @apply text-2xl;
+  }
+} 

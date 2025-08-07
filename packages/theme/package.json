@@ -1,0 +1,17 @@
+{
+  "name": "@phoenix/theme",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "next-themes": "^0.4.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+} 

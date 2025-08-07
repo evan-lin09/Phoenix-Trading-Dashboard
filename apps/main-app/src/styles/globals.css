@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 交易平台专用CSS变量 */
+    --color-bull: #00C89F;
+    --color-bear: #F23645;
+    --color-warning: #F59E0B;
+    
+    /* 图表颜色 */
+    --chart-bg: #1A1A1A;
+    --chart-grid: #2A2A2A;
+    --chart-text: #FFFFFF;
+    
+    /* 间距系统 */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* 滚动条样式 */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+}
+
+@layer components {
+  /* 交易平台通用组件样式 */
+  .trading-card {
+    @apply bg-card border border-border rounded-lg shadow-sm p-4;
+  }
+  
+  .price-up {
+    @apply text-bull;
+  }
+  
+  .price-down {
+    @apply text-bear;
+  }
+  
+  .price-neutral {
+    @apply text-foreground;
+  }
+  
+  .chart-container {
+    @apply bg-chart-bg border border-border rounded-lg overflow-hidden;
+  }
+  
+  /* 按钮样式增强 */
+  .btn-trading {
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+  }
+  
+  .btn-buy {
+    @apply btn-trading bg-bull hover:bg-bull/90 text-white;
+  }
+  
+  .btn-sell {
+    @apply btn-trading bg-bear hover:bg-bear/90 text-white;
+  }
+}
+
+/* 加载动画 */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 数字滚动动画 */
+@keyframes numberChange {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.number-change {
+  animation: numberChange 0.3s ease-out;
+} 

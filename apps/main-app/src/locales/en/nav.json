@@ -1,0 +1,18 @@
+{
+  "home": "Home",
+  "spot": "Spot Trading",
+  "futures": "Futures",
+  "earn": "Earn",
+  "dashboard": "Dashboard",
+  "profile": "Profile",
+  "settings": "Settings",
+  "logout": "Logout",
+  "markets": "Markets",
+  "trade": "Trade",
+  "portfolio": "Portfolio",
+  "orders": "Orders",
+  "history": "History",
+  "support": "Support",
+  "notifications": "Notifications",
+  "security": "Security"
+} 
