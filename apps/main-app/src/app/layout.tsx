@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Providers } from './providers';
 import './globals.css';
-import { Locale, locales } from '../middleware';
 
 export const metadata: Metadata = {
   title: 'Phoenix Trading Dashboard',
@@ -9,11 +8,6 @@ export const metadata: Metadata = {
   keywords: 'trading, cryptocurrency, blockchain, finance, Phoenix',
   authors: [{ name: 'evan.lin' }],
 };
-
-// 生成静态参数
-export async function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
 
 export default function RootLayout({
   children,

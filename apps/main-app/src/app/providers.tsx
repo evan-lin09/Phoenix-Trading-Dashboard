@@ -2,7 +2,9 @@
 
 import { HeroUIProvider } from '@heroui/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import { Locale } from '../middleware';
+import { Locale } from '@/middleware';
+import {AppLayout} from "@/components/layout/AppLayout";
+import {LocaleProvider} from "@/contexts/LocaleContext";
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -18,9 +20,11 @@ export function Providers({ children, locale = 'en' }: ProvidersProps) {
         enableSystem
         disableTransitionOnChange
       >
-        <div data-locale={locale}>
-          {children}
-        </div>
+        <LocaleProvider locale={locale}>
+          <AppLayout>
+            {children}
+          </AppLayout>
+        </LocaleProvider>
       </NextThemesProvider>
     </HeroUIProvider>
   );
